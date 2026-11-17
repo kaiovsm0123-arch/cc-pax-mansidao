@@ -51,6 +51,27 @@
     });
   });
 
+  // Pré-cadastro: monta a mensagem com os dados e abre o WhatsApp da empresa
+  var pre = document.querySelector('form[data-whatsapp]');
+  if (pre) {
+    var rotulos = { nome: 'Nome', telefone: 'Telefone', cidade: 'Cidade', plano: 'Plano',
+                    dependentes: 'Dependentes', mensagem: 'Dúvida' };
+    pre.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!pre.checkValidity()) { pre.reportValidity(); return; }
+      var dados = new FormData(pre);
+      var linhas = ['*Pré-cadastro - CC PAX MANSIDAO*', ''];
+      Object.keys(rotulos).forEach(function (campo) {
+        var valor = (dados.get(campo) || '').toString().trim();
+        if (valor) linhas.push(rotulos[campo] + ': ' + valor);
+      });
+      linhas.push('', 'Autorizou o contato: sim');
+      var url = pre.getAttribute('data-whatsapp') + '?text=' + encodeURIComponent(linhas.join('\n'));
+      window.open(url, '_blank', 'noopener');
+      window.location.href = 'obrigado.html';
+    });
+  }
+
   // Mostrar a imagem escolhida antes de salvar
   document.querySelectorAll('input[type="file"][data-preview]').forEach(function (inp) {
     inp.addEventListener('change', function () {
