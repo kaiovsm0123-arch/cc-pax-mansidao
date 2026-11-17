@@ -72,13 +72,13 @@ p { margin: 0 0 1em; max-width: 64ch; }
 .marca-texto strong { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; }
 .marca-texto small { color: var(--cinza); font-size: .8rem; }
 .menu { display: flex; align-items: center; gap: 4px; }
-.menu a { color: var(--tinta); text-decoration: none; font-weight: 500; padding: 10px 12px; border-radius: 999px; transition: background .2s, color .2s; }
+.menu a { color: var(--tinta); text-decoration: none; font-weight: 500; padding: 10px 10px; white-space: nowrap; border-radius: 999px; transition: background .2s, color .2s; }
 .menu a:hover { background: var(--azul-suave); color: var(--azul); }
 .menu a[aria-current="page"] { color: var(--azul); font-weight: 700; }
 .menu-zap { margin-left: 8px; }
 .menu-btn { display: none; background: none; border: 0; width: 48px; height: 48px; cursor: pointer; position: relative; flex: none; }
 .menu-btn > span[aria-hidden] { position: absolute; left: 13px; right: 13px; top: 23px; height: 2px; background: var(--azul); border-radius: 2px; box-shadow: 0 -7px 0 var(--azul), 0 7px 0 var(--azul); }
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
   .menu-btn { display: block; }
   .menu { position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: var(--creme); padding: 8px 16px 20px; border-bottom: 1px solid var(--linha); display: none; }
   .menu.aberto { display: flex; }
